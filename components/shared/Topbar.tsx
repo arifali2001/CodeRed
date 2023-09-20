@@ -7,14 +7,16 @@ function Topbar() {
   return (
     <nav className="topbar">
       <Link className="flex items-center gap-4" href="/">
-        <Image
+        {/* <Image
           src="/assets/logo.png
         "
           alt="logo"
           width={28}
           height={28}
-        />
-        <p className="text-heading3-bold text-light-1 max-xs:hidden">Wiyor</p>
+        /> */}
+        <p className="text-heading3-bold text-light-1 max-xs:hidden">
+          Code<span className="text-red-500">Red</span>
+        </p>
       </Link>
       <div className="flex items-center gap-1">
         <div className="block md:hidden">

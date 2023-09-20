@@ -121,7 +121,6 @@ const ThreadCard = ({
         </div>
         {/* Todo: Deleting of mate*/}
         {/* Todo: number of replies feature*/}
-        {console.log(community)}
 
         {!isComment && community && (
           <Link
