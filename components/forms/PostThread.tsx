@@ -1,5 +1,4 @@
 "use client";
-
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import {
@@ -20,6 +19,7 @@ import { ThreadValidation } from "@/lib/validations/thread";
 import { Textarea } from "../ui/textarea";
 import { createThread } from "@/lib/actions/thread.actions";
 import { communityTabs } from "@/constants";
+import { Organization } from "@clerk/nextjs/server";
 // import { updateUser } from "@/lib/actions/user.actions";
 
 interface Props {
@@ -47,13 +47,21 @@ function PostThread({ userId }: { userId: string }) {
     },
   });
   const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-    console.log("ORG ID:", organization);
-    await createThread({
-      text: values.thread,
-      author: userId,
-      communityId: organization ? organization.id : null,
-      path: pathname,
-    });
+    if (!organization) {
+      await createThread({
+        text: values.thread,
+        author: userId,
+        communityId: null,
+        path: pathname,
+      });
+    } else {
+      await createThread({
+        text: values.thread,
+        author: userId,
+        communityId: organization.id,
+        path: pathname,
+      });
+    }
     router.push("/");
   };
   return (
