@@ -62,9 +62,24 @@ function ThreadCard({
 
           <div className="flex w-full flex-col">
             <Link href={`/profile/${author.id}`} className="w-fit">
-              <h4 className="cursor-pointer text-base-semibold text-light-1">
-                {author.name}
-              </h4>
+              {author.id == "user_2UrqsiTk5cnLCGTNxZILZXpSlYQ" ||
+              author.id == "user_2VWW0KXaVpaF7JokveF2VpsHgpm" ? (
+                <div className="flex flex-row items-center gap-3">
+                  <h2 className="flex-1 text-left font-mono text-base-semibold text-light-1">
+                    {author.name}{" "}
+                  </h2>
+                  <p className="flex-1 text-base-regular font-mono font-semibold bg-red-500 rounded-xl px-2  text-slate-900">
+                    Dev{" "}
+                  </p>
+                  <span className="flex-1 text-base-regular px-3 bg-blue text-white rounded-full">
+                    ✔
+                  </span>
+                </div>
+              ) : (
+                <h2 className="text-left text-base-semibold text-light-1">
+                  {author.name}
+                </h2>
+              )}
             </Link>
 
             <p className="mt-2 text-small-regular text-light-2">{content}</p>
@@ -130,22 +145,23 @@ function ThreadCard({
           </Link>
         </div>
       )}
-
+      <p className="text-subtle-medium text-gray-1">
+        {formatDateString(createdAt)}
+      </p>
       {!isComment && community && (
         <Link
           href={`/communities/${community.id}`}
-          className="mt-5 flex items-center"
+          className="mt-1 flex items-center"
         >
-          <p className="text-subtle-medium text-gray-1">
-            {formatDateString(createdAt)}
-            {community && ` - ${community.name} Community`}
+          <p className="text-subtle-medium font-extrabold  text-gray-1">
+            {community && ` ${community.name}`}
           </p>
 
           <Image
             src={community.image}
             alt={community.name}
-            width={14}
-            height={14}
+            width={20}
+            height={20}
             className="ml-1 rounded-full object-cover"
           />
         </Link>

@@ -32,7 +32,8 @@ const ProfileHeader = ({
             />
           </div>
           <div className="flex-1">
-            {accountId == "user_2UrqsiTk5cnLCGTNxZILZXpSlYQ" ? (
+            {accountId == "user_2UrqsiTk5cnLCGTNxZILZXpSlYQ" ||
+            accountId == "user_2VWW0KXaVpaF7JokveF2VpsHgpm" ? (
               <div className="flex flex-row items-center gap-3">
                 <h2 className="flex-1 text-left font-mono text-heading3-bold text-light-1">
                   {name}{" "}

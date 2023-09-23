@@ -12,7 +12,7 @@ import Bottombar from "@/components/shared/Bottombar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wiyor",
+  title: "CodeRed",
   description: "A Social Platform",
 };
 
